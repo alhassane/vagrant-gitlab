@@ -11,7 +11,7 @@ This will create a ubuntu virtual machine with gitlab running. By default, web p
 
 ### Hostname
 
-Change `config.vm.hostname = "gitlab.chenwl.com"`<sup>[link](Vagrantfile#L16)</sup> to your own hostname. This will be hostname of your site.
+Change `config.vm.hostname = "gitlab.local"`<sup>[link](Vagrantfile#L16)</sup> to your own hostname. This will be hostname of your site.
 
 Without a valid hostname, your mail sent to Gmail will be blocked.
 
@@ -24,7 +24,7 @@ Find line `config.vm.network "forwarded_port", guest: 22, host: 8022`<sup>[link]
 Git client side need to configure ssh to connect to this port by default. Append following lines to `~/.ssh/config`.
 
 ```sh
-Host gitlab.chenwl.com # replace with your hostname
+Host gitlab.local # replace with your hostname
   Port 8022            # replace with your ssh port
 ```
 
