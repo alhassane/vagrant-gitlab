@@ -17,9 +17,20 @@ Without a valid hostname, your mail sent to Gmail will be blocked.
 
 ### Port forwarding
 
+#### HTTP connection
+
+Result in Gitlab being available on [http://192.168.33.20/](http://192.168.33.20/)
+
+Or in hosts file, add lines to Result in Gitlab being available on [http://gitlab.local](http://gitlab.local)
+
+```sh
+192.168.33.20   gitlab.local
+
+```
+
 #### SSH Port
 
-Find line `config.vm.network "forwarded_port", guest: 22, host: 8022`<sup>[link](Vagrantfile#L27)</sup>, replace `8022` to any port you want ssh to connect.
+Instead of a HHTP connection to a SSH Ports, add line `config.vm.network "forwarded_port", guest: 22, host: 8022`<sup>[link](Vagrantfile#L27)</sup>, replace `8022` to any port you want ssh to connect.
 
 Git client side need to configure ssh to connect to this port by default. Append following lines to `~/.ssh/config`.
 
