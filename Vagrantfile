@@ -24,16 +24,6 @@ Vagrant.configure(2) do |config|
       vb.memory = "2048"
     end
 
-
-    # Shell provisioning
-    config.vm.provision "shell", inline: <<-SHELL
-      sudo apt-get update
-      sudo apt-get install -y openssh-server
-      debconf-set-selections <<< "postfix postfix/mailname string $HOSTNAME"
-      debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
-      DEBIAN_FRONTEND=noninteractive sudo apt-get install -y postfix
-    SHELL
-
     # Shell provisioning
     config.vm.provision "shell" do |s|
         s.path = "provisioners/shell/bootstrap.sh"
